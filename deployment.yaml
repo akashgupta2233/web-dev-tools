@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-dev-tools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-dev-tools
+  template:
+    metadata:
+      labels:
+        app: web-dev-tools
+    spec:
+      containers:
+        - name: web-dev-tools-container
+          image: akashgupta2233/web-dev-tools:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
